@@ -3,7 +3,7 @@
 class Singleton {
 private:
     
-    Singleton() { std::cout << "SingletonClass instance created!" << std::endl; }
+    Singleton() { std::cout << "Singleton instance created!" << std::endl; }
     ~Singleton() {}
 
     static Singleton* _instance;
@@ -15,6 +15,11 @@ public:
         _instance = new Singleton; 
     return _instance;
     }
+    
+    static void release_instance() {
+	delete _instance;
+	_instance = nullptr;
+}
 
 };
 
